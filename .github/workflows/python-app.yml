@@ -52,7 +52,7 @@ jobs:
   Deploy_Homologacao:
     needs: Build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop' && vars.DEPLOY_HOMOLOGACAO == 'true'
 
     environment:
       name: homologacao
@@ -78,7 +78,7 @@ jobs:
   Deploy_Producao:
     needs: Build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && vars.DEPLOY_PRODUCAO == 'true'
 
     environment:
       name: producao
