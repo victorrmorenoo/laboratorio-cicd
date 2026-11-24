@@ -65,6 +65,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            set -e
             docker pull ${{ env.IMAGE_NAME }}:${{ github.sha }}
             docker stop api-homologacao || true
             docker rm api-homologacao || true
@@ -90,6 +91,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            set -e
             docker pull ${{ env.IMAGE_NAME }}:${{ github.sha }}
             docker stop api-producao || true
             docker rm api-producao || true
